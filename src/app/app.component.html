@@ -1,0 +1,13 @@
+<div class="center">
+<h1 class="center">{{ title }}</h1>
+<input type="text" placeholder="Enter new task" #task />
+<br>
+<button (click)="addTask(task.value)">Add new task</button>
+<br>
+<ul *ngFor="let item of items; index as i">
+  <input type="checkbox" [(ngModel)]="item.checked" (ngModelChange)="changed(item.id,i)">{{item.name}}<button class="margin" (click)="removeTask(item.id)">remove</button>
+</ul>
+<br>
+<br>
+<button (click)="clear()">Clear Storage</button>
+</div>
